@@ -28,7 +28,7 @@ module twos_compliment(
     
     
     full_adder one(
-        .A(A_inverse[0]),
+    .A(A_inverse[0]),
     .B(1'b1),
     .Cin(1'b0),
     .Y(Y[0]),
