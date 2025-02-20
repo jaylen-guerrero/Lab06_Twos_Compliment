@@ -5,19 +5,30 @@ module twos_compliment(
 
 );
     wire [7:0] carry;
+    wire [7:0] A_inverse;
 
-    assign A[0] = ~A[0];
-    assign A[1] = ~A[1];
-    assign A[2] = ~A[2];
-    assign A[3] = ~A[3];
-    assign A[4] = ~A[4];
-    assign A[5] = ~A[5];
-    assign A[6] = ~A[6];
-    assign A[7] = ~A[7];
+    assign A_inverse[0] = ~A[0];
+    assign A_inverse[1] = ~A[1];
+    assign A_inverse[2] = ~A[2];
+    assign A_inverse[3] = ~A[3];
+    assign A_inverse[4] = ~A[4];
+    assign A_inverse[5] = ~A[5];
+    assign A_inverse[6] = ~A[6];
+    assign A_inverse[7] = ~A[7];
+    
+
+    // assign A[0] = ~A[0];
+    // assign A[1] = ~A[1];
+    // assign A[2] = ~A[2];
+    // assign A[3] = ~A[3];
+    // assign A[4] = ~A[4];
+    // assign A[5] = ~A[5];
+    // assign A[6] = ~A[6];
+    // assign A[7] = ~A[7];
     
     
     full_adder one(
-    .A(A[0]),
+        .A(A_inverse[0]),
     .B(1'b1),
     .Cin(1'b0),
     .Y(Y[0]),
@@ -25,7 +36,7 @@ module twos_compliment(
     );
     
     full_adder two(
-    .A(A[1]),
+    .A(A_inverse[1]),
     .B(1'b0),
     .Cin(carry[0]),
     .Y(Y[1]),
@@ -33,7 +44,7 @@ module twos_compliment(
     );
     
     full_adder three(
-    .A(A[2]),
+    .A(A_inverse[2]),
     .B(1'b0),
     .Cin(carry[1]),
     .Y(Y[2]),
@@ -41,7 +52,7 @@ module twos_compliment(
     );
     
     full_adder four(
-    .A(A[3]),
+    .A(A_inverse[3]),
     .B(1'b0),
     .Cin(carry[2]),
     .Y(Y[3]),
@@ -49,7 +60,7 @@ module twos_compliment(
     );
     
     full_adder five(
-    .A(A[4]),
+    .A(A_inverse[4]),
     .B(1'b0),
     .Cin(carry[3]),
     .Y(Y[4]),
@@ -57,7 +68,7 @@ module twos_compliment(
     );
     
     full_adder six(
-    .A(A[5]),
+    .A(A_inverse[5]),
     .B(1'b0),
     .Cin(carry[4]),
     .Y(Y[5]),
@@ -65,7 +76,7 @@ module twos_compliment(
     );
     
     full_adder seven(
-    .A(A[6]),
+    .A(A_inverse[6]),
     .B(1'b0),
     .Cin(carry[5]),
     .Y(Y[6]),
@@ -73,7 +84,7 @@ module twos_compliment(
     );
     
     full_adder eight(
-    .A(A[7]),
+    .A(A_inverse[7]),
     .B(1'b0),
     .Cin(carry[6]),
     .Y(Y[7])
